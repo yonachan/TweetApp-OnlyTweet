@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yonatter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("Yonatter", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("What is Yonatter", "/about") %>
+        </li>
+        <li>
+          <%= link_to("TweetList", "/posts/index") %>
+        </li>
+        <li>
+          <%= link_to("NewPost", "/posts/new") %>
+        </li>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
